@@ -9,7 +9,7 @@ namespace Common.Domain.Model {
     public abstract class AggregateRoot : Entity {
         private readonly List<Event> _changes = new List<Event>();
 
-        public abstract Guid Id { get; }
+        public Guid Id { get; protected set; }
         public int Version { get; internal set; }
 
         public IEnumerable<Event> GetUncommittedChanges() {

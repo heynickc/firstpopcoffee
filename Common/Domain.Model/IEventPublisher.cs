@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Common.Domain.Model {
-    public class Event : Message {
-        public int Version;
+    public interface IEventPublisher {
+        void Publish<T>(T @event) where T : Event;
     }
 }

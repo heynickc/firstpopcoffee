@@ -11,18 +11,18 @@ namespace RoastPlanning.Tests {
     public abstract class Specification<T, TCommand> where T : AggregateRoot {
         public abstract T Given();
         public abstract TCommand When();
-        public T sut;
-        public List<Event> produced;
-        public Exception caught;
+        public T SUT;
+        public List<Event> Produced;
+        public Exception Caught;
 
         public Specification() {
             try {
-                sut = Given();
+                SUT = Given();
                 When();
-                produced = new List<Event>(sut.GetUncommittedChanges());
+                Produced = new List<Event>(SUT.GetUncommittedChanges());
             }
             catch (Exception ex) {
-                caught = ex;
+                Caught = ex;
             }
         }
     }

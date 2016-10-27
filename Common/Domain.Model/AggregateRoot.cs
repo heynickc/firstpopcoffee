@@ -20,7 +20,7 @@ namespace Common.Domain.Model {
             _changes.Clear();
         }
 
-        public void LoadsFromHistory(IEnumerable<Event> history) {
+        public void LoadFromHistory(IEnumerable<Event> history) {
             foreach (var e in history) ApplyChange(e, false);
         }
 

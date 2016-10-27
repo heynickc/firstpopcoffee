@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Common.Domain.Model;
+using RoastPlanning.Domain.Model;
 
-namespace RoastPlanning.Domain.Model {
+namespace RoastPlanning.Application {
     public class CreateRoastScheduleCommandHandler : ICommandHandler<CreateRoastSchedule> {
         private readonly IRepository<RoastSchedule> _repository;
 
@@ -15,7 +12,7 @@ namespace RoastPlanning.Domain.Model {
 
         public void Handle(CreateRoastSchedule message) {
             var roastSchedule = new RoastSchedule(Guid.NewGuid());
-            _repository.Save(roastSchedule);
+            _repository.Save(roastSchedule, -1);
         }
     }
 }

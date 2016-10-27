@@ -48,6 +48,7 @@
     <Compile Include="Domain.Model\Command.cs" />
     <Compile Include="Domain.Model\Entity.cs" />
     <Compile Include="Domain.Model\Event.cs" />
+    <Compile Include="Domain.Model\EventSourcedRepository.cs" />
     <Compile Include="Domain.Model\EventStore.cs" />
     <Compile Include="Domain.Model\ICommandHandler.cs" />
     <Compile Include="Domain.Model\Identity.cs" />

@@ -7,9 +7,19 @@ using Common.Domain.Model;
 
 namespace RoastPlanning.Domain.Model {
     public class RoastSchedule : AggregateRoot {
-        public RoastSchedule(Guid id) {
-            Id = id;
+
+        // public Guid Id { get; protected set; }
+        // defined in AggregateRoot base class
+        // could also be defined as abstract and overridden here
+
+        public void Apply(RoastScheduleCreatedEvent e) {
+            Id = e.Id;
         }
+
+        public RoastSchedule(Guid id) {
+            ApplyChange(new RoastScheduleCreatedEvent(Id));
+        }
+
         public RoastSchedule() {
             // used to create in repository ... many ways to avoid this, eg making private constructor
         }

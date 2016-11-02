@@ -57,6 +57,7 @@
     <Compile Include="Domain.Model\IIdentity.cs" />
     <Compile Include="Domain.Model\IRepository.cs" />
     <Compile Include="Domain.Model\Message.cs" />
+    <Compile Include="Domain.Model\ValueObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

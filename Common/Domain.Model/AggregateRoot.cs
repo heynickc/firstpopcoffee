@@ -7,6 +7,7 @@ using ReflectionMagic;
 
 namespace Common.Domain.Model {
     public abstract class AggregateRoot : Entity {
+
         private readonly List<Event> _changes = new List<Event>();
 
         public Guid Id { get; protected set; }

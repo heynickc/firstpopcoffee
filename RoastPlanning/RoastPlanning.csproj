@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\ChooseRoastDaysForRoastScheduleCommandHandler.cs" />
     <Compile Include="Application\CreateRoastScheduleApplicationService.cs" />
-    <Compile Include="Application\CreateRoastScheduleCommandHandler.cs" />
+    <Compile Include="Application\StartCreatingRoastScheduleCommandHandler.cs" />
+    <Compile Include="Domain.Model\RoastDay.cs" />
     <Compile Include="Domain.Model\RoastSchedule.cs" />
     <Compile Include="Domain.Model\RoastScheduleCommands.cs" />
     <Compile Include="Domain.Model\RoastScheduleCreatedEvent.cs" />

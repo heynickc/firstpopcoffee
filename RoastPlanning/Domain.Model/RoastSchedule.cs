@@ -17,7 +17,7 @@ namespace RoastPlanning.Domain.Model {
         }
 
         public RoastSchedule(Guid id) {
-            ApplyChange(new RoastScheduleCreatedEvent(Id));
+            ApplyChange(new RoastScheduleCreatedEvent(id));
         }
 
         public RoastSchedule() {

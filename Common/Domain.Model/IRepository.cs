@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Common.Domain.Model {
-    public interface IRepository<T> where T : AggregateRoot, new() {
-        void Save(AggregateRoot aggregate, int exptectedVersion);
-        T GetById(Guid id);
+    public interface IRepository<TAggregateRoot> where TAggregateRoot : AggregateRoot, new() {
+        void Save(TAggregateRoot aggregate, int exptectedVersion);
+        TAggregateRoot GetById(Guid id);
     }
 }

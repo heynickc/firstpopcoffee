@@ -17,9 +17,9 @@ namespace RoastPlanning.Tests {
             return new List<Event>();
         }
         protected abstract TCommand When();
+        protected abstract ICommandHandler<TCommand> CommandHandler();
 
         protected Mock<IRepository<TAggregateRoot>> MockRepository;
-        protected abstract ICommandHandler<TCommand> CommandHandler();
         protected TAggregateRoot AggregateRoot;
         protected IEnumerable<Event> PublishedEvents;
         protected Exception Caught;

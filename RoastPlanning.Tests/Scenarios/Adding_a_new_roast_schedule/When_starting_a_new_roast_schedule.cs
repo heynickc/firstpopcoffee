@@ -10,12 +10,12 @@ using RoastPlanning.Application;
 using RoastPlanning.Domain.Model;
 using Xunit;
 
-namespace RoastPlanning.Tests.Scenarios.Adding_a_new_roast_schedule {
-    public class When_starting_a_new_roast_schedule : Specification<RoastSchedule, StartCreatingRoastScheduleCommand> {
+namespace RoastPlanning.Tests.Scenarios.Adding_a_new_roast_schedule {   
+    public class When_starting_to_create_a_new_roast_schedule : Specification<RoastSchedule, StartCreatingRoastScheduleCommand> {
 
         private readonly Guid Id;
 
-        public When_starting_a_new_roast_schedule() {
+        public When_starting_to_create_a_new_roast_schedule() {
             Id = new Guid();
         }
 
@@ -28,8 +28,11 @@ namespace RoastPlanning.Tests.Scenarios.Adding_a_new_roast_schedule {
         }
 
         [Then]
-        public void The_roast_schedule_is_created() {
+        public void Then_a_roast_schedule_created_event_will_be_published() {
             PublishedEvents.Should().NotBeNullOrEmpty();
+            PublishedEvents.Last().Should().BeOfType<RoastScheduleCreatedEvent>();
+            PublishedEvents.Last().As<RoastScheduleCreatedEvent>().Id.Should().Be(Id);
+            PublishedEvents.Last().Version.Should().Be(0);
         }
     }
 }

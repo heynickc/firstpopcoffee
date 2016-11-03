@@ -19,12 +19,12 @@ namespace RoastPlanning.Tests.Scenarios.Adding_a_new_roast_schedule {
             Id = new Guid();
         }
 
-        protected override ICommandHandler<StartCreatingRoastScheduleCommand> CommandHandler() {
-            return new StartCreatingRoastScheduleCommandHandler(MockRepository.Object);
-        }
-
         protected override StartCreatingRoastScheduleCommand When() {
             return new StartCreatingRoastScheduleCommand(Id);
+        }
+
+        protected override ICommandHandler<StartCreatingRoastScheduleCommand> CommandHandler() {
+            return new StartCreatingRoastScheduleCommandHandler(MockRepository.Object);
         }
 
         [Then]

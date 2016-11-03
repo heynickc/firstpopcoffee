@@ -18,24 +18,31 @@ namespace RoastPlanning.Tests {
         }
         protected abstract TCommand When();
         protected abstract ICommandHandler<TCommand> CommandHandler();
-
-        protected Mock<IRepository<TAggregateRoot>> MockRepository;
         protected TAggregateRoot AggregateRoot;
+        protected Mock<IRepository<TAggregateRoot>> MockRepository;
+
+        // collects published events for assertion
         protected IEnumerable<Event> PublishedEvents;
-        protected Exception Caught;
+        protected Exception CaughtException;
 
         protected Specification() {
-            AggregateRoot = new TAggregateRoot();
-            AggregateRoot.LoadFromHistory(Given());
 
             MockRepository = new Mock<IRepository<TAggregateRoot>>();
             MockRepository.Setup(x => x.GetById(It.IsAny<Guid>())).Returns(AggregateRoot);
             MockRepository.Setup(x => x.Save(It.IsAny<TAggregateRoot>(), It.IsAny<int>()))
                 .Callback<TAggregateRoot, int>((x, _) => AggregateRoot = x);
 
-            CommandHandler().Handle(When());
+            AggregateRoot = new TAggregateRoot();
+            AggregateRoot.LoadFromHistory(Given());
 
-            PublishedEvents = new List<Event>(AggregateRoot.GetUncommittedChanges());
+            try {
+                CommandHandler().Handle(When());
+                PublishedEvents = new List<Event>(AggregateRoot.GetUncommittedChanges());
+            }
+            catch (Exception exception) {
+                CaughtException = exception;
+            }
+
         }
     }
 }

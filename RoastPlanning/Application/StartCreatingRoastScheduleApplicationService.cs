@@ -7,10 +7,10 @@ using Common.Domain.Model;
 using RoastPlanning.Domain.Model;
 
 namespace RoastPlanning.Application {
-    public class CreateRoastScheduleApplicationService {
+    public class StartCreatingRoastScheduleApplicationService {
         private readonly IRepository<RoastSchedule> _repository;
 
-        public CreateRoastScheduleApplicationService(IRepository<RoastSchedule> repository) {
+        public StartCreatingRoastScheduleApplicationService(IRepository<RoastSchedule> repository) {
             _repository = repository;
         }
 

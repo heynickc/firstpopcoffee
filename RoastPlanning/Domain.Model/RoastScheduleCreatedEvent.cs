@@ -7,9 +7,9 @@ using Common.Domain.Model;
 
 namespace RoastPlanning.Domain.Model {
     public class RoastScheduleCreatedEvent : Event {
-        public readonly Guid Id;
-        public RoastScheduleCreatedEvent(Guid id) {
-            Id = id;
+        public readonly Guid RoastScheduleId;
+        public RoastScheduleCreatedEvent(Guid roastScheduleId) {
+            RoastScheduleId = roastScheduleId;
         }
     }
 }

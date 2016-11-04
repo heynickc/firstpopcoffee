@@ -43,11 +43,13 @@
     <Compile Include="Application\ChooseRoastDaysForRoastScheduleCommandHandler.cs" />
     <Compile Include="Application\StartCreatingRoastScheduleApplicationService.cs" />
     <Compile Include="Application\StartCreatingRoastScheduleCommandHandler.cs" />
+    <Compile Include="Domain.Model\ChooseRoastDaysForRoastScheduleCommand.cs" />
     <Compile Include="Domain.Model\RoastDays.cs" />
     <Compile Include="Domain.Model\RoastSchedule.cs" />
-    <Compile Include="Domain.Model\RoastScheduleCommands.cs" />
+    <Compile Include="Domain.Model\StartCreatingRoastScheduleCommand.cs" />
     <Compile Include="Domain.Model\RoastScheduleCreatedEvent.cs" />
     <Compile Include="Domain.Model\RoastScheduleId.cs" />
+    <Compile Include="Domain.Model\RoastScheduleRoastDaysChosenEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

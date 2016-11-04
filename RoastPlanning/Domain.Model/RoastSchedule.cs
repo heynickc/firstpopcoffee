@@ -11,7 +11,12 @@ namespace RoastPlanning.Domain.Model {
         public RoastDays RoastDays { get; private set; }
 
         public void Apply(RoastScheduleCreatedEvent e) {
-            Id = e.Id;
+            RoastDays = new RoastDays(new HashSet<RoastDay>());
+            Id = e.RoastScheduleId;
+        }
+
+        public void Apply(RoastScheduleRoastDaysChosenEvent e) {
+            RoastDays = new RoastDays(e.Days);
         }
 
         public RoastSchedule(Guid id) {
@@ -19,7 +24,9 @@ namespace RoastPlanning.Domain.Model {
         }
 
         public void SetRoastDays(RoastDays roastDays) {
-            
+            if (roastDays.Days.Count == 0) throw new ArgumentException("roastDays count must be greater than 0");
+            var newDays = roastDays.Days.Select(x => x.Day).ToArray();
+            ApplyChange(new RoastScheduleRoastDaysChosenEvent(Id, newDays));
         } 
 
         public RoastSchedule() {

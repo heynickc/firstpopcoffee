@@ -27,13 +27,13 @@ namespace RoastPlanning.Tests {
 
         protected Specification() {
 
+            AggregateRoot = new TAggregateRoot();
+            AggregateRoot.LoadFromHistory(Given());
+
             MockRepository = new Mock<IRepository<TAggregateRoot>>();
             MockRepository.Setup(x => x.GetById(It.IsAny<Guid>())).Returns(AggregateRoot);
             MockRepository.Setup(x => x.Save(It.IsAny<TAggregateRoot>(), It.IsAny<int>()))
                 .Callback<TAggregateRoot, int>((x, _) => AggregateRoot = x);
-
-            AggregateRoot = new TAggregateRoot();
-            AggregateRoot.LoadFromHistory(Given());
 
             try {
                 CommandHandler().Handle(When());

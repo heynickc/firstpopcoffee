@@ -75,7 +75,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scenarios\Adding_a_new_roast_schedule\When_starting_a_new_roast_schedule.cs" />
     <Compile Include="Scenarios\Choosing_roast_days_for_roast_schedule\When_choosing_roast_days_for_roast_schedule.cs" />
+    <Compile Include="Scenarios\Choosing_roast_days_for_roast_schedule\When_choosing_roast_days_for_roast_schedule_using_event_store.cs" />
     <Compile Include="Specification.cs" />
+    <Compile Include="SpecificationNoMocks.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

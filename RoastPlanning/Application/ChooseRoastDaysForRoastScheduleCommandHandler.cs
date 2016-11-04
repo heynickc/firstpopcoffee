@@ -15,7 +15,7 @@ namespace RoastPlanning.Application {
         public void Handle(ChooseRoastDaysForRoastSchedule message) {
             var roastSchedule = _repository.GetById(message.Id);
             roastSchedule.SetRoastDays(new RoastDays(message.RoastDays));
-            _repository.Save(roastSchedule, 0);
+            _repository.Save(roastSchedule, message.OriginalVersion);
         }
     }
 }

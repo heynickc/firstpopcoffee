@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Common.Domain.Model;
 using Moq;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace RoastPlanning.Tests {
     public abstract class Specification<TAggregateRoot, TCommand>
@@ -45,6 +46,28 @@ namespace RoastPlanning.Tests {
 
         }
     }
+
+    public class ThenAttribute : FactAttribute { }
+
+    public class PrepareEvent {
+
+        public static EventVersionSetter Set(Event domainEvent) {
+            return new EventVersionSetter(domainEvent);
+        }
+    }
+
+    public class EventVersionSetter {
+
+        private readonly Event _event;
+
+        public EventVersionSetter(Event @event) {
+            _event = @event;
+        }
+
+        public Event ToVersion(int version) {
+            _event.Version = version;
+            return _event;
+        }
+    }
 }
 
-public class ThenAttribute : FactAttribute { }

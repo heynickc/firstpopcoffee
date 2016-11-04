@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Common.Domain.Model {
-    class EventSourcedRepository<T> : IRepository<T> where T : AggregateRoot, new() {
+    public class EventSourcedRepository<T> : IRepository<T> where T : AggregateRoot, new() {
 
         private readonly IEventStore _storage;
         public EventSourcedRepository(IEventStore storage) {

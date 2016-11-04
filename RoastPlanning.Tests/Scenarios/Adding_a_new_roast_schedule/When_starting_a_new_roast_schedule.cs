@@ -28,7 +28,6 @@ namespace RoastPlanning.Tests.Scenarios.Adding_a_new_roast_schedule {
             PublishedEvents.Should().NotBeNullOrEmpty();
             PublishedEvents.Last().Should().BeOfType<RoastScheduleCreatedEvent>();
             PublishedEvents.Last().As<RoastScheduleCreatedEvent>().RoastScheduleId.Should().Be(Id);
-            PublishedEvents.Last().Version.Should().Be(0);
         }
     }
 }

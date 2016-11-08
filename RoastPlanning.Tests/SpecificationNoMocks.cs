@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Common.Domain.Model;
 using Moq;
+using ReflectionMagic;
 
 namespace RoastPlanning.Tests {
 
@@ -22,9 +23,18 @@ namespace RoastPlanning.Tests {
         protected Exception CaughtException;
 
         protected SpecificationNoMocks() {
+             
+            Repository = new EventSourcedRepository<TAggregateRoot>(
+                new EventStore(
+                    new FakeBus()));
 
             AggregateRoot = new TAggregateRoot();
-            AggregateRoot.LoadFromHistory(Given());
+            foreach (var @event in Given()) {
+                AggregateRoot.AsDynamic().Apply(@event);
+                
+            }
+
+            Repository.Save(AggregateRoot, 1);
 
             try {
                 CommandHandler().Handle(When());
@@ -33,8 +43,6 @@ namespace RoastPlanning.Tests {
             catch (Exception exception) {
                 CaughtException = exception;
             }
-
         }
     }
-
 }

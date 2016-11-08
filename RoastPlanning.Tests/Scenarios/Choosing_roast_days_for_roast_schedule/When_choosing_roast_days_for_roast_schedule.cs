@@ -25,7 +25,7 @@ namespace RoastPlanning.Tests.Scenarios.Choosing_roast_days_for_roast_schedule {
                 DayOfWeek.Friday,
                 DayOfWeek.Saturday
             };
-            return new ChooseRoastDaysForRoastSchedule(Id, roastDays, 1);
+            return new ChooseRoastDaysForRoastSchedule(Id, roastDays, 0);
         }
 
         protected override ICommandHandler<ChooseRoastDaysForRoastSchedule> CommandHandler() {
@@ -36,5 +36,6 @@ namespace RoastPlanning.Tests.Scenarios.Choosing_roast_days_for_roast_schedule {
         public void Then_days_for_roast_schedule_are_chosen() {
             PublishedEvents.Last().Should().BeOfType<RoastScheduleRoastDaysChosenEvent>();
         }
+        
     }
 }

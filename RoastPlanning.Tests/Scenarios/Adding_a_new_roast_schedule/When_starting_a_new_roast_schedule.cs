@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Common.Domain.Model;
+using FirstPopCoffee.Common.Domain.Model;
+using FirstPopCoffee.RoastPlanning.Application;
+using FirstPopCoffee.RoastPlanning.Domain.Model;
 using FluentAssertions;
-using Moq;
-using RoastPlanning.Application;
-using RoastPlanning.Domain.Model;
-using Xunit;
 
-namespace RoastPlanning.Tests.Scenarios.Adding_a_new_roast_schedule {   
+namespace FirstPopCoffee.RoastPlanning.Tests.Scenarios.Adding_a_new_roast_schedule {   
     public class When_starting_to_create_a_new_roast_schedule : Specification<RoastSchedule, StartCreatingRoastScheduleCommand> {
 
         private Guid Id = Guid.NewGuid();

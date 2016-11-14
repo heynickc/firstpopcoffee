@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Common.Domain.Model {
+namespace FirstPopCoffee.Common.Domain.Model {
     public class EventStore : IEventStore {
         private readonly IEventPublisher _publisher;
 

@@ -1,7 +1,7 @@
 ﻿using System;
-using Common.Domain.Model;
+using FirstPopCoffee.Common.Domain.Model;
 
-namespace RoastPlanning.Domain.Model {
+namespace FirstPopCoffee.RoastPlanning.Domain.Model {
 
     public class ChooseRoastDaysForRoastScheduleCommand : Command {
         public readonly Guid Id;

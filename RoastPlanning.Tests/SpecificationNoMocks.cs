@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Common.Domain.Model;
-using Moq;
+using FirstPopCoffee.Common.Domain.Model;
 using ReflectionMagic;
 
-namespace RoastPlanning.Tests {
+namespace FirstPopCoffee.RoastPlanning.Tests {
 
     public abstract class SpecificationNoMocks<TAggregateRoot, TCommand>
         where TAggregateRoot : AggregateRoot, new()

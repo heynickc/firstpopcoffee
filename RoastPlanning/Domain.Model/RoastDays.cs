@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Common.Domain.Model;
+using FirstPopCoffee.Common.Domain.Model;
 
-namespace RoastPlanning.Domain.Model {
+namespace FirstPopCoffee.RoastPlanning.Domain.Model {
     public class RoastDays : ValueObject<RoastDays> {
         public HashSet<RoastDay> Days { get; private set; }
         public RoastDays(HashSet<RoastDay> days) {

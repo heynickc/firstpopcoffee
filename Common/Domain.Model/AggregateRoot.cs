@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ReflectionMagic;
 
-namespace Common.Domain.Model {
+namespace FirstPopCoffee.Common.Domain.Model {
     public abstract class AggregateRoot : Entity {
 
         private readonly List<Event> _changes = new List<Event>();

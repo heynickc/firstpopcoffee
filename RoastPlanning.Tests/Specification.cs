@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.AccessControl;
-using System.Text;
-using System.Threading.Tasks;
-using Common.Domain.Model;
+using FirstPopCoffee.Common.Domain.Model;
 using Moq;
 using Xunit;
-using Xunit.Abstractions;
 
-namespace RoastPlanning.Tests {
+namespace FirstPopCoffee.RoastPlanning.Tests {
     public abstract class Specification<TAggregateRoot, TCommand>
             where TAggregateRoot : AggregateRoot, new()
             where TCommand : Command {

@@ -9,7 +9,7 @@ using Xunit.Abstractions;
 
 namespace RoastPlanning.Tests.Scenarios.Choosing_roast_days_for_roast_schedule {
 
-    public class When_choosing_roast_days_for_roast_schedule_using_event_store : SpecificationNoMocks<RoastSchedule, ChooseRoastDaysForRoastSchedule> {
+    public class When_choosing_roast_days_for_roast_schedule_using_event_store : SpecificationNoMocks<RoastSchedule, ChooseRoastDaysForRoastScheduleCommand> {
 
         private readonly Guid Id = Guid.NewGuid();
 
@@ -17,7 +17,7 @@ namespace RoastPlanning.Tests.Scenarios.Choosing_roast_days_for_roast_schedule {
             yield return PrepareEvent.Set(new RoastScheduleCreatedEvent(Id)).ToVersion(1);
         }
 
-        protected override ChooseRoastDaysForRoastSchedule When() {
+        protected override ChooseRoastDaysForRoastScheduleCommand When() {
             var roastDays = new[] {
                 DayOfWeek.Monday,
                 DayOfWeek.Tuesday,
@@ -25,10 +25,10 @@ namespace RoastPlanning.Tests.Scenarios.Choosing_roast_days_for_roast_schedule {
                 DayOfWeek.Friday,
                 DayOfWeek.Saturday
             };
-            return new ChooseRoastDaysForRoastSchedule(Id, roastDays, 1);
+            return new ChooseRoastDaysForRoastScheduleCommand(Id, roastDays, 1);
         }
 
-        protected override ICommandHandler<ChooseRoastDaysForRoastSchedule> CommandHandler() {
+        protected override ICommandHandler<ChooseRoastDaysForRoastScheduleCommand> CommandHandler() {
             return new ChooseRoastDaysForRoastScheduleCommandHandler(Repository);
         }
 

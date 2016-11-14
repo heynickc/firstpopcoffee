@@ -14,7 +14,7 @@ namespace RoastPlanning.Tests.Scenarios.Choosing_roast_days_for_roast_schedule {
         private readonly Guid Id = Guid.NewGuid();
 
         protected override IEnumerable<Event> Given() {
-            yield return PrepareEvent.Set(new RoastScheduleCreatedEvent(Id)).ToVersion(1);
+            yield return PrepareEvent.Set(new RoastScheduleCreatedEvent(Id)).ToVersion(0);
         }
 
         protected override ChooseRoastDaysForRoastSchedule When() {
@@ -35,7 +35,6 @@ namespace RoastPlanning.Tests.Scenarios.Choosing_roast_days_for_roast_schedule {
         [Then]
         public void Then_days_for_roast_schedule_are_chosen() {
             PublishedEvents.Last().Should().BeOfType<RoastScheduleRoastDaysChosenEvent>();
-        }
-        
+        }        
     }
 }

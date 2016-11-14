@@ -24,7 +24,7 @@ namespace RoastPlanning.Tests.Scenarios.Adding_a_new_roast_schedule {
         }
 
         [Then]
-        public void Then_a_roast_schedule_created_event_will_be_published() {
+        public void Then_a_roast_schedule_is_created() {
             PublishedEvents.Should().NotBeNullOrEmpty();
             PublishedEvents.Last().Should().BeOfType<RoastScheduleCreatedEvent>();
             PublishedEvents.Last().As<RoastScheduleCreatedEvent>().RoastScheduleId.Should().Be(Id);

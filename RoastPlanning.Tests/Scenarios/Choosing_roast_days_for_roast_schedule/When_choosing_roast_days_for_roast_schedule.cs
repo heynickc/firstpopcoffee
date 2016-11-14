@@ -9,7 +9,7 @@ using RoastPlanning.Application;
 using RoastPlanning.Domain.Model;
 
 namespace RoastPlanning.Tests.Scenarios.Choosing_roast_days_for_roast_schedule {
-    public class When_choosing_roast_days_for_roast_schedule : Specification<RoastSchedule, ChooseRoastDaysForRoastSchedule> {
+    public class When_choosing_roast_days_for_roast_schedule : Specification<RoastSchedule, ChooseRoastDaysForRoastScheduleCommand> {
 
         private readonly Guid Id = Guid.NewGuid();
 
@@ -17,7 +17,7 @@ namespace RoastPlanning.Tests.Scenarios.Choosing_roast_days_for_roast_schedule {
             yield return PrepareEvent.Set(new RoastScheduleCreatedEvent(Id)).ToVersion(0);
         }
 
-        protected override ChooseRoastDaysForRoastSchedule When() {
+        protected override ChooseRoastDaysForRoastScheduleCommand When() {
             var roastDays = new[] {
                 DayOfWeek.Monday,
                 DayOfWeek.Tuesday,
@@ -25,10 +25,10 @@ namespace RoastPlanning.Tests.Scenarios.Choosing_roast_days_for_roast_schedule {
                 DayOfWeek.Friday,
                 DayOfWeek.Saturday
             };
-            return new ChooseRoastDaysForRoastSchedule(Id, roastDays, 0);
+            return new ChooseRoastDaysForRoastScheduleCommand(Id, roastDays, 0);
         }
 
-        protected override ICommandHandler<ChooseRoastDaysForRoastSchedule> CommandHandler() {
+        protected override ICommandHandler<ChooseRoastDaysForRoastScheduleCommand> CommandHandler() {
             return new ChooseRoastDaysForRoastScheduleCommandHandler(MockRepository.Object);
         }
 

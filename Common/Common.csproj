@@ -7,8 +7,8 @@
     <ProjectGuid>{3F9E80F7-9744-4B2E-8248-D80E2ED7E54F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Common</RootNamespace>
-    <AssemblyName>Common</AssemblyName>
+    <RootNamespace>FirstPopCoffee.Common</RootNamespace>
+    <AssemblyName>FirstPopCoffee.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

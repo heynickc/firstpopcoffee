@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Common.Domain.Model;
+using FirstPopCoffee.Common.Domain.Model;
+using FirstPopCoffee.RoastPlanning.Application;
+using FirstPopCoffee.RoastPlanning.Domain.Model;
 using FluentAssertions;
-using RoastPlanning.Application;
-using RoastPlanning.Domain.Model;
-using Xunit.Abstractions;
 
-namespace RoastPlanning.Tests.Scenarios.Choosing_roast_days_for_roast_schedule {
+namespace FirstPopCoffee.RoastPlanning.Tests.Scenarios.Choosing_roast_days_for_roast_schedule {
 
     public class When_choosing_roast_days_for_roast_schedule_using_event_store : SpecificationNoMocks<RoastSchedule, ChooseRoastDaysForRoastScheduleCommand> {
 

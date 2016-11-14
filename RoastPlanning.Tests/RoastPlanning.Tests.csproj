@@ -7,8 +7,8 @@
     <ProjectGuid>{E6E81603-66F5-441C-BB1A-7316F025C6BF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RoastPlanning.Tests</RootNamespace>
-    <AssemblyName>RoastPlanning.Tests</AssemblyName>
+    <RootNamespace>FirstPopCoffee.RoastPlanning.Tests</RootNamespace>
+    <AssemblyName>FirstPopCoffee.RoastPlanning.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

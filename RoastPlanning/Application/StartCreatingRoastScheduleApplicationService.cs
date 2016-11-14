@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Common.Domain.Model;
-using RoastPlanning.Domain.Model;
+using FirstPopCoffee.Common.Domain.Model;
+using FirstPopCoffee.RoastPlanning.Domain.Model;
 
-namespace RoastPlanning.Application {
+namespace FirstPopCoffee.RoastPlanning.Application {
     public class StartCreatingRoastScheduleApplicationService {
         private readonly IRepository<RoastSchedule> _repository;
 

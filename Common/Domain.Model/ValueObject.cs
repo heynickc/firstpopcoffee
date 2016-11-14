@@ -2,10 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Common.Domain.Model {
+namespace FirstPopCoffee.Common.Domain.Model {
 
     // https://github.com/tpierrain/Value
     /// <summary>

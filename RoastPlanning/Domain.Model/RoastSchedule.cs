@@ -4,7 +4,7 @@ using System.Linq;
 using FirstPopCoffee.Common.Domain.Model;
 
 namespace FirstPopCoffee.RoastPlanning.Domain.Model {
-    public class RoastSchedule : AggregateRoot {
+    public class RoastSchedule : EventSourcedAggregateRoot {
 
         public RoastDays RoastDays { get; private set; }
 

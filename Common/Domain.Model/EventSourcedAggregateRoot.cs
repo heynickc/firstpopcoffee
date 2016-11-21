@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using ReflectionMagic;
 
 namespace FirstPopCoffee.Common.Domain.Model {
-    public abstract class AggregateRoot : Entity {
+    public abstract class EventSourcedAggregateRoot : Entity {
 
         private readonly List<Event> _changes = new List<Event>();
 

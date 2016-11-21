@@ -6,7 +6,7 @@ using Xunit;
 
 namespace FirstPopCoffee.RoastPlanning.Tests {
     public abstract class Specification<TAggregateRoot, TCommand>
-            where TAggregateRoot : AggregateRoot, new()
+            where TAggregateRoot : EventSourcedAggregateRoot, new()
             where TCommand : Command {
 
         protected virtual IEnumerable<Event> Given() {

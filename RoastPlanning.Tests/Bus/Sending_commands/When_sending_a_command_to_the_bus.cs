@@ -28,22 +28,47 @@ namespace FirstPopCoffee.RoastPlanning.Tests.Bus.Sending_commands {
 
     }
 
-    public class When_sending_a_command_to_the_bus : Specification<TestAggregateRoot, TestCommand> {
+    public class When_sending_a_command_to_the_fakebus_with_a_single_command_handler : Specification<TestAggregateRoot, TestCommand> {
         private readonly FakeBus _bus;
-        private readonly TestCommandHandler _handler;
-        private readonly TestCommand _command;
-        public When_sending_a_command_to_the_bus() {
+        private TestCommandHandler _handler;
+        private TestCommand _command;
+        public When_sending_a_command_to_the_fakebus_with_a_single_command_handler() {
             _bus = new FakeBus();
-            _handler = new TestCommandHandler();
-            _command = new TestCommand(Guid.NewGuid());
             _bus.RegisterHandler<TestCommand>(_handler.Handle);
         }
 
         protected override TestCommand When() {
+            _command = new TestCommand(Guid.NewGuid());
             return _command;
         }
 
         protected override ICommandHandler<TestCommand> CommandHandler() {
+            _handler = new TestCommandHandler();
+            return _handler;
+        }
+
+        [Then]
+        public void Then_handle_method_is_invoked_on_command_handler() {
+            _handler.CommandIds.First().Should().Be(_command.Id);
+        }
+    }
+
+    public class When_sending_a_command_to_the_fakebus_with_multiple_command_handlers : Specification<TestAggregateRoot, TestCommand> {
+        private readonly FakeBus _bus;
+        private TestCommandHandler _handler;
+        private TestCommand _command;
+        public When_sending_a_command_to_the_fakebus_with_multiple_command_handlers() {
+            _bus = new FakeBus();
+            _bus.RegisterHandler<TestCommand>(_handler.Handle);
+        }
+
+        protected override TestCommand When() {
+            _command = new TestCommand(Guid.NewGuid());
+            return _command;
+        }
+
+        protected override ICommandHandler<TestCommand> CommandHandler() {
+            _handler = new TestCommandHandler();
             return _handler;
         }
 

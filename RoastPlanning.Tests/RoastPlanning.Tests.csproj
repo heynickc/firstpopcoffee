@@ -76,6 +76,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bus\Sending_commands\When_sending_a_command_to_the_bus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scenarios\Adding_a_new_roast_schedule\When_starting_a_new_roast_schedule.cs" />
     <Compile Include="Scenarios\Choosing_roast_days_for_roast_schedule\When_choosing_roast_days_for_roast_schedule.cs" />

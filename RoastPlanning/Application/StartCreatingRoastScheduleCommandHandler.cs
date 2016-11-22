@@ -10,7 +10,7 @@ namespace FirstPopCoffee.RoastPlanning.Application {
         }
 
         public void Handle(StartCreatingRoastScheduleCommand message) {
-            var roastSchedule = new RoastSchedule(message.Id);
+            var roastSchedule = new RoastSchedule(message.RoastScheduleId);
             _repository.Save(roastSchedule, -1);
         }
     }

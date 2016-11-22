@@ -3,9 +3,9 @@ using FirstPopCoffee.Common.Domain.Model;
 
 namespace FirstPopCoffee.RoastPlanning.Domain.Model {
     public class StartCreatingRoastScheduleCommand : Command {
-        public readonly Guid Id;
-        public StartCreatingRoastScheduleCommand(Guid id) {
-            Id = id;
+        public readonly Guid RoastScheduleId;
+        public StartCreatingRoastScheduleCommand(Guid id, Guid roastScheduleId) : base(id) {
+            RoastScheduleId = roastScheduleId;
         }
     }
 }

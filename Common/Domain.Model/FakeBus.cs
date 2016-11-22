@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace FirstPopCoffee.Common.Domain.Model {
     public class FakeBus : ICommandSender, IEventPublisher {
@@ -37,7 +38,8 @@ namespace FirstPopCoffee.Common.Domain.Model {
             foreach (var handler in handlers) {
                 //dispatch on thread pool for added awesomeness
                 var handler1 = handler;
-                ThreadPool.QueueUserWorkItem(x => handler1(@event));
+                //ThreadPool.QueueUserWorkItem(x => handler1(@event));
+                Task.Run(() => handler1(@event));
             }
         }
     }

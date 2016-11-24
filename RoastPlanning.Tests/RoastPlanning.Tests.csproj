@@ -76,6 +76,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bus\Publishing_events\When_publishing_an_event_to_the_fakebus_with_a_single_event_handler_registered.cs" />
+    <Compile Include="Bus\Sending_commands\TestCommandHandler.cs" />
     <Compile Include="Bus\Sending_commands\When_sending_a_command_to_the_bus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scenarios\Adding_a_new_roast_schedule\When_starting_a_new_roast_schedule.cs" />

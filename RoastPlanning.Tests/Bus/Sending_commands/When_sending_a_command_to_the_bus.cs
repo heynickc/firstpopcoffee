@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,16 +10,6 @@ namespace FirstPopCoffee.RoastPlanning.Tests.Bus.Sending_commands {
     public class TestCommand : Command {
         public TestCommand(Guid id) : base(id) {
 
-        }
-    }
-
-    public class TestCommandHandler : ICommandHandler<TestCommand> {
-        public List<Guid> CommandIds { get; }
-        public TestCommandHandler() {
-            CommandIds = new List<Guid>();
-        }
-        public void Handle(TestCommand command) {
-            CommandIds.Add(command.Id);
         }
     }
 

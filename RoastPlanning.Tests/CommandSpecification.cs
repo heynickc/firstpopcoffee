@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using FirstPopCoffee.Common.Domain.Model;
+using FirstPopCoffee.Common.Events;
 using Moq;
 using Xunit;
 
 namespace FirstPopCoffee.RoastPlanning.Tests {
-    public abstract class Specification<TAggregateRoot, TCommand>
+    public abstract class CommandSpecification<TAggregateRoot, TCommand>
             where TAggregateRoot : EventSourcedAggregateRoot, new()
             where TCommand : Command {
 
@@ -21,7 +22,7 @@ namespace FirstPopCoffee.RoastPlanning.Tests {
         protected IEnumerable<Event> PublishedEvents;
         protected Exception CaughtException;
 
-        protected Specification() {
+        protected CommandSpecification() {
 
             AggregateRoot = new TAggregateRoot();
             AggregateRoot.LoadFromHistory(Given());

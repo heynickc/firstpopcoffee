@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using FirstPopCoffee.Common.Events;
 
 namespace FirstPopCoffee.Common.Domain.Model {
     public class FakeBus : ICommandSender, IEventPublisher {

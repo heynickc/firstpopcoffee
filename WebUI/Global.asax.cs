@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using FirstPopCoffee.Common.Domain.Model;
+using FirstPopCoffee.Common.Events;
 using FirstPopCoffee.RoastPlanning.Application;
 using FirstPopCoffee.RoastPlanning.Domain.Model;
 using WebUI.Infrastructure;

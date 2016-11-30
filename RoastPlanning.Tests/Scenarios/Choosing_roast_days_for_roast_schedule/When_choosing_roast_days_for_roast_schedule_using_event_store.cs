@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using FirstPopCoffee.Common.Domain.Model;
+using FirstPopCoffee.Common.Events;
 using FirstPopCoffee.RoastPlanning.Application;
 using FirstPopCoffee.RoastPlanning.Domain.Model;
 using FluentAssertions;

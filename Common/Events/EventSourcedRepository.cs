@@ -1,6 +1,7 @@
 ﻿using System;
+using FirstPopCoffee.Common.Domain.Model;
 
-namespace FirstPopCoffee.Common.Domain.Model {
+namespace FirstPopCoffee.Common.Events {
     public class EventSourcedRepository<T> : IRepository<T> where T : EventSourcedAggregateRoot, new() {
 
         private readonly IEventStore _storage;

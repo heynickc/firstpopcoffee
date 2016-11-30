@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using FirstPopCoffee.Common.Events;
 
 namespace FirstPopCoffee.Common.Domain.Model {
     public interface IEventStore {

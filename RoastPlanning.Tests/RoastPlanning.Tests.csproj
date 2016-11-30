@@ -76,14 +76,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bus\Publishing_events\TestEvent.cs" />
+    <Compile Include="Bus\Publishing_events\TestEventHandler.cs" />
     <Compile Include="Bus\Publishing_events\When_publishing_an_event_to_the_fakebus_with_a_single_event_handler_registered.cs" />
+    <Compile Include="Bus\Sending_commands\TestCommand.cs" />
     <Compile Include="Bus\Sending_commands\TestCommandHandler.cs" />
     <Compile Include="Bus\Sending_commands\When_sending_a_command_to_the_bus.cs" />
+    <Compile Include="Bus\TestAggregateRoot.cs" />
+    <Compile Include="EventSpecification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scenarios\Adding_a_new_roast_schedule\When_starting_a_new_roast_schedule.cs" />
     <Compile Include="Scenarios\Choosing_roast_days_for_roast_schedule\When_choosing_roast_days_for_roast_schedule.cs" />
     <Compile Include="Scenarios\Choosing_roast_days_for_roast_schedule\When_choosing_roast_days_for_roast_schedule_using_event_store.cs" />
-    <Compile Include="Specification.cs" />
+    <Compile Include="CommandSpecification.cs" />
     <Compile Include="SpecificationNoMocks.cs" />
   </ItemGroup>
   <ItemGroup />

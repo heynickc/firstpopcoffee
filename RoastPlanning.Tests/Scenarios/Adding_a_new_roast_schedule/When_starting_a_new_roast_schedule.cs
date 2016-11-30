@@ -6,7 +6,7 @@ using FirstPopCoffee.RoastPlanning.Domain.Model;
 using FluentAssertions;
 
 namespace FirstPopCoffee.RoastPlanning.Tests.Scenarios.Adding_a_new_roast_schedule {   
-    public class When_starting_to_create_a_new_roast_schedule : Specification<RoastSchedule, StartCreatingRoastScheduleCommand> {
+    public class When_starting_to_create_a_new_roast_schedule : CommandSpecification<RoastSchedule, StartCreatingRoastScheduleCommand> {
 
         private readonly Guid _roastScheduleId = Guid.NewGuid();
 

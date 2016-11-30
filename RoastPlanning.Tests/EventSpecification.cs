@@ -2,47 +2,45 @@
 using System.Collections.Generic;
 using FirstPopCoffee.Common.Domain.Model;
 using FirstPopCoffee.Common.Events;
-using ReflectionMagic;
+using Moq;
 
 namespace FirstPopCoffee.RoastPlanning.Tests {
 
-    public abstract class SpecificationNoMocks<TAggregateRoot, TCommand>
+    public abstract class EventSpecification<TAggregateRoot, TEvent>
         where TAggregateRoot : EventSourcedAggregateRoot, new()
-        where TCommand : Command {
+        where TEvent : Event {
 
         protected virtual IEnumerable<Event> Given() {
             return new List<Event>();
         }
-        protected abstract TCommand When();
-        protected abstract ICommandHandler<TCommand> CommandHandler();
+        protected abstract TEvent When();
+        protected abstract IEventHandler<TEvent> EventHandler();
         protected TAggregateRoot AggregateRoot;
-        protected IRepository<TAggregateRoot> Repository;
+        protected Mock<IRepository<TAggregateRoot>> MockRepository;
 
         // collects published events for assertion
         protected IEnumerable<Event> PublishedEvents;
         protected Exception CaughtException;
 
-        protected SpecificationNoMocks() {
-             
-            Repository = new EventSourcedRepository<TAggregateRoot>(
-                new EventStore(
-                    new FakeBus()));
+        protected EventSpecification() {
 
             AggregateRoot = new TAggregateRoot();
-            foreach (var @event in Given()) {
-                AggregateRoot.AsDynamic().Apply(@event);
-                
-            }
+            AggregateRoot.LoadFromHistory(Given());
 
-            Repository.Save(AggregateRoot, 1);
+            MockRepository = new Mock<IRepository<TAggregateRoot>>();
+            MockRepository.Setup(x => x.GetById(It.IsAny<Guid>())).Returns(AggregateRoot);
+            MockRepository.Setup(x => x.Save(It.IsAny<TAggregateRoot>(), It.IsAny<int>()))
+                .Callback<TAggregateRoot, int>((x, _) => AggregateRoot = x);
 
             try {
-                CommandHandler().Handle(When());
+                EventHandler().Handle(When());
                 PublishedEvents = new List<Event>(AggregateRoot.GetUncommittedChanges());
             }
             catch (Exception exception) {
                 CaughtException = exception;
             }
+
         }
     }
+
 }

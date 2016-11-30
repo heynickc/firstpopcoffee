@@ -47,13 +47,12 @@
     <Compile Include="Domain.Model\EventSourcedAggregateRoot.cs" />
     <Compile Include="Domain.Model\Command.cs" />
     <Compile Include="Domain.Model\Entity.cs" />
-    <Compile Include="Domain.Model\Event.cs" />
-    <Compile Include="Domain.Model\EventSourcedRepository.cs" />
     <Compile Include="Domain.Model\EventStore.cs" />
     <Compile Include="Domain.Model\FakeBus.cs" />
     <Compile Include="Domain.Model\ICommandHandler.cs" />
     <Compile Include="Domain.Model\ICommandSender.cs" />
     <Compile Include="Domain.Model\Identity.cs" />
+    <Compile Include="Domain.Model\IEventHandler.cs" />
     <Compile Include="Domain.Model\IEventPublisher.cs" />
     <Compile Include="Domain.Model\IEventStore.cs" />
     <Compile Include="Domain.Model\IIdentity.cs" />
@@ -63,6 +62,8 @@
     <Compile Include="Domain.Model\IUnitOfWork.cs" />
     <Compile Include="Domain.Model\Message.cs" />
     <Compile Include="Domain.Model\ValueObject.cs" />
+    <Compile Include="Events\Event.cs" />
+    <Compile Include="Events\EventSourcedRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

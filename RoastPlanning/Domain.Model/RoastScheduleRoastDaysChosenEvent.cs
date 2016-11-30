@@ -1,5 +1,6 @@
 ﻿using System;
 using FirstPopCoffee.Common.Domain.Model;
+using FirstPopCoffee.Common.Events;
 
 namespace FirstPopCoffee.RoastPlanning.Domain.Model {
     public class RoastScheduleRoastDaysChosenEvent : Event {

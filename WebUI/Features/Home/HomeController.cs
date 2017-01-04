@@ -2,11 +2,6 @@
 
 namespace WebUI.Features.Home {
     public class HomeController : Controller {
-        //private readonly FakeBus _bus;
-
-        //public HomeController(FakeBus bus) {
-        //    _bus = bus;
-        //}
 
         public ActionResult Index() {
             return View();

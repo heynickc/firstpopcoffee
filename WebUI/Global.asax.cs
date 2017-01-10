@@ -29,7 +29,7 @@ namespace WebUI
             var storage = new EventStore(bus);
             var repo = new EventSourcedRepository<RoastSchedule>(storage);
 
-            bus.RegisterHandler<StartCreatingRoastScheduleCommand>(
+            bus.RegisterHandler<CreateNewRoastScheduleCommand>(
                 new StartCreatingRoastScheduleCommandHandler(repo).Handle);
             bus.RegisterHandler<ChooseRoastDaysForRoastScheduleCommand>(
                 new ChooseRoastDaysForRoastScheduleCommandHandler(repo).Handle);

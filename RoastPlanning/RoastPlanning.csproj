@@ -46,7 +46,8 @@
     <Compile Include="Domain.Model\ChooseRoastDaysForRoastScheduleCommand.cs" />
     <Compile Include="Domain.Model\RoastDays.cs" />
     <Compile Include="Domain.Model\RoastSchedule.cs" />
-    <Compile Include="Domain.Model\StartCreatingRoastScheduleCommand.cs" />
+    <Compile Include="Domain.Model\RoastScheduleStartOfWeekService.cs" />
+    <Compile Include="Domain.Model\CreateNewRoastScheduleCommand.cs" />
     <Compile Include="Domain.Model\RoastScheduleCreatedEvent.cs" />
     <Compile Include="Domain.Model\RoastScheduleId.cs" />
     <Compile Include="Domain.Model\RoastScheduleRoastDaysChosenEvent.cs" />

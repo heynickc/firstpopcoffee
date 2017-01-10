@@ -17,7 +17,7 @@ namespace FirstPopCoffee.RoastPlanning.Tests.Bus.Sending_commands {
         }
 
         protected override TestCommand When() {
-            _command = new TestCommand(Guid.NewGuid());
+            _command = new TestCommand();
             return _command;
         }
 
@@ -42,7 +42,7 @@ namespace FirstPopCoffee.RoastPlanning.Tests.Bus.Sending_commands {
         }
 
         protected override TestCommand When() {
-            _command = new TestCommand(Guid.NewGuid());
+            _command = new TestCommand();
             return _command;
         }
 

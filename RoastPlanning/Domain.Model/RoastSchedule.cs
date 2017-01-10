@@ -6,9 +6,12 @@ using FirstPopCoffee.Common.Domain.Model;
 namespace FirstPopCoffee.RoastPlanning.Domain.Model {
     public class RoastSchedule : EventSourcedAggregateRoot {
 
+        public DateTime RoastWeekStartsOn { get; private set; }
         public RoastDays RoastDays { get; private set; }
 
-        public void Apply(RoastScheduleCreatedEvent e) {
+        public void Apply(RoastScheduleCreatedEvent e)
+        {
+            RoastWeekStartsOn = DateTime.Now.StartOfWeek(DayOfWeek.Sunday);
             RoastDays = new RoastDays(new HashSet<RoastDay>());
             Id = e.RoastScheduleId;
         }

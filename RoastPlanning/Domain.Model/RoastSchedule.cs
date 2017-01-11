@@ -11,8 +11,7 @@ namespace FirstPopCoffee.RoastPlanning.Domain.Model {
 
         public void Apply(RoastScheduleCreatedEvent e)
         {
-            RoastWeekStartsOn = DateTime.Now.StartOfWeek(DayOfWeek.Sunday);
-            RoastDays = new RoastDays(new HashSet<RoastDay>());
+            RoastWeekStartsOn = e.RoastWeekStartsOn;
             Id = e.RoastScheduleId;
         }
 
@@ -20,8 +19,9 @@ namespace FirstPopCoffee.RoastPlanning.Domain.Model {
             RoastDays = new RoastDays(e.Days);
         }
 
-        public RoastSchedule(Guid id) {
-            ApplyChange(new RoastScheduleCreatedEvent(id));
+        public RoastSchedule(Guid id, DateTime roastWeekStartsOn) {
+            RoastDays = new RoastDays(new HashSet<RoastDay>());
+            ApplyChange(new RoastScheduleCreatedEvent(id, roastWeekStartsOn));
         }
 
         public void SetRoastDays(RoastDays roastDays) {

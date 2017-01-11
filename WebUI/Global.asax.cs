@@ -10,6 +10,7 @@ using FirstPopCoffee.Common.Events;
 using FirstPopCoffee.RoastPlanning.Application;
 using FirstPopCoffee.RoastPlanning.Domain.Model;
 using WebUI.Infrastructure;
+using WebUI.ReadModel;
 
 namespace WebUI
 {
@@ -24,15 +25,6 @@ namespace WebUI
 
             ViewEngines.Engines.Clear();
             ViewEngines.Engines.Add(new FeatureViewLocationRazorViewEngine());
-
-            var bus = new FakeBus();
-            var storage = new EventStore(bus);
-            var repo = new EventSourcedRepository<RoastSchedule>(storage);
-
-            bus.RegisterHandler<CreateNewRoastScheduleCommand>(
-                new StartCreatingRoastScheduleCommandHandler(repo).Handle);
-            bus.RegisterHandler<ChooseRoastDaysForRoastScheduleCommand>(
-                new ChooseRoastDaysForRoastScheduleCommandHandler(repo).Handle);
         }
     }
 }

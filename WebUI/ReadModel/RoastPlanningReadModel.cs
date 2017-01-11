@@ -2,42 +2,22 @@ using System.Data.Entity;
 using System.Linq;
 using FirstPopCoffee.RoastPlanning.Domain.Model;
 using WebUI.Infrastructure;
+using WebUI.Models;
 
 namespace WebUI.ReadModel
 {
     public interface IRoastPlanningReadModel
     {
-        IQueryable<RoastSchedule> RoastSchedules { get; }
+        IQueryable<RoastScheduleViewModel> RoastSchedules { get; }
     }
+
     public class FakeRoastPlanningReadModel : IRoastPlanningReadModel
     {
-        private readonly DbSet<RoastSchedule> _roastSchedules;
-        public FakeRoastPlanningReadModel(FakeDbSet<RoastSchedule> roastSchedules)
+        private readonly DbSet<RoastScheduleViewModel> _roastSchedules;
+        public FakeRoastPlanningReadModel(FakeDbSet<RoastScheduleViewModel> roastSchedules)
         {
             _roastSchedules = roastSchedules;
         }
-        public IQueryable<RoastSchedule> RoastSchedules => this._roastSchedules;
-    }
-
-    public interface IRoastPlanningContext
-    {
-        DbSet<RoastSchedule> RoastSchedules { get; }
-        int SaveChanges();
-    }
-    public class RoastPlanningContext : IRoastPlanningContext
-    {
-        public DbSet<RoastSchedule> RoastSchedules { get; set; }
-
-        public RoastPlanningContext()
-        {
-            this.RoastSchedules = new FakeDbSet<RoastSchedule>();
-        }
-
-        public int SaveChangesCount { get; private set; }
-        public int SaveChanges()
-        {
-            this.SaveChangesCount++;
-            return 1;
-        }
+        public IQueryable<RoastScheduleViewModel> RoastSchedules => this._roastSchedules;
     }
 }

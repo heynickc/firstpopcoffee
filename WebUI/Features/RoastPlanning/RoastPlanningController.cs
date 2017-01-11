@@ -20,12 +20,12 @@ namespace WebUI.Features.RoastPlanning
 
         public ActionResult Index()
         {
-            return View();
+            var viewModel = _readModel.RoastSchedules.ToList();
+            return View(viewModel);
         }
 
         public ActionResult Create()
-        {
-            var viewModel = _readModel.RoastSchedules.ToList();
+        {       
             return View();
         }
 

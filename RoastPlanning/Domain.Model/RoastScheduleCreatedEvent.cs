@@ -5,8 +5,10 @@ using FirstPopCoffee.Common.Events;
 namespace FirstPopCoffee.RoastPlanning.Domain.Model {
     public class RoastScheduleCreatedEvent : Event {
         public readonly Guid RoastScheduleId;
-        public RoastScheduleCreatedEvent(Guid roastScheduleId) {
+        public readonly DateTime RoastWeekStartsOn;
+        public RoastScheduleCreatedEvent(Guid roastScheduleId,DateTime roastWeekStartsOn) {
             RoastScheduleId = roastScheduleId;
+            RoastWeekStartsOn = roastWeekStartsOn;
         }
     }
 }

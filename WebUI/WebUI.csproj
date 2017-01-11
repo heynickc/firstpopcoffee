@@ -202,12 +202,15 @@
     </Compile>
     <Compile Include="Infrastructure\FakeDbSet.cs" />
     <Compile Include="Infrastructure\FeatureViewLocationRazorViewEngine.cs" />
+    <Compile Include="Infrastructure\NinjectBindings.cs" />
     <Compile Include="Models\RoastScheduleViewModel.cs" />
+    <Compile Include="ReadModel\RoastPlanningContext.cs" />
     <Compile Include="ReadModel\RoastPlanningReadModel.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReadModel\RoastPlanningReadModelProjections.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

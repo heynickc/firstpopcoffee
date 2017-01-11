@@ -13,7 +13,8 @@ namespace FirstPopCoffee.RoastPlanning.Tests.Scenarios.Choosing_roast_days_for_r
         private readonly Guid Id = Guid.NewGuid();
 
         protected override IEnumerable<Event> Given() {
-            yield return PrepareEvent.Set(new RoastScheduleCreatedEvent(Id)).ToVersion(0);
+            yield return PrepareEvent.Set(
+                new RoastScheduleCreatedEvent(Id, DateTime.Now.StartOfWeek(DayOfWeek.Sunday))).ToVersion(0);
         }
 
         protected override ChooseRoastDaysForRoastScheduleCommand When() {
@@ -28,7 +29,7 @@ namespace FirstPopCoffee.RoastPlanning.Tests.Scenarios.Choosing_roast_days_for_r
         }
 
         protected override ICommandHandler<ChooseRoastDaysForRoastScheduleCommand> CommandHandler() {
-            return new ChooseRoastDaysForRoastScheduleCommandHandler(MockRepository.Object);
+            return new RoastScheduleCommandHandlers(MockRepository.Object);
         }
 
         [Then]

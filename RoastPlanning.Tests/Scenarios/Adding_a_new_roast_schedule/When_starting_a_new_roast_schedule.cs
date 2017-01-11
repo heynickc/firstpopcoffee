@@ -15,7 +15,7 @@ namespace FirstPopCoffee.RoastPlanning.Tests.Scenarios.Adding_a_new_roast_schedu
         }
 
         protected override ICommandHandler<CreateNewRoastScheduleCommand> CommandHandler() {
-            return new StartCreatingRoastScheduleCommandHandler(MockRepository.Object);
+            return new RoastScheduleCommandHandlers(MockRepository.Object);
         }
 
         [Then]

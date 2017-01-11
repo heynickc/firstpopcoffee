@@ -41,8 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application\ChooseRoastDaysForRoastScheduleCommandHandler.cs" />
+    <Compile Include="Application\RoastScheduleCommandHandlers.cs" />
     <Compile Include="Application\StartCreatingRoastScheduleApplicationService.cs" />
-    <Compile Include="Application\StartCreatingRoastScheduleCommandHandler.cs" />
+    <Compile Include="Application\CreateNewRoastScheduleCommandHandler.cs" />
     <Compile Include="Domain.Model\ChooseRoastDaysForRoastScheduleCommand.cs" />
     <Compile Include="Domain.Model\RoastDays.cs" />
     <Compile Include="Domain.Model\RoastSchedule.cs" />

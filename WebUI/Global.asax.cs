@@ -9,6 +9,7 @@ using FirstPopCoffee.Common.Domain.Model;
 using FirstPopCoffee.Common.Events;
 using FirstPopCoffee.RoastPlanning.Application;
 using FirstPopCoffee.RoastPlanning.Domain.Model;
+using Ninject;
 using WebUI.Infrastructure;
 using WebUI.ReadModel;
 

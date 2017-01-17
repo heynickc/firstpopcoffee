@@ -9,10 +9,10 @@ namespace WebUI.Features.RoastPlanning
 {
     public class RoastPlanningController : Controller
     {
-        private readonly FakeBus _bus;
+        private readonly ICommandSender _bus;
         private readonly IRoastPlanningReadModel _readModel;
 
-        public RoastPlanningController(FakeBus bus, IRoastPlanningReadModel readModel)
+        public RoastPlanningController(ICommandSender bus, IRoastPlanningReadModel readModel)
         {
             _bus = bus;
             _readModel = readModel;

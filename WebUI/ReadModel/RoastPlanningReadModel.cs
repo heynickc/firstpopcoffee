@@ -11,10 +11,16 @@ namespace WebUI.ReadModel
         IQueryable<RoastScheduleViewModel> RoastSchedules { get; }
     }
 
-    public class FakeRoastPlanningReadModel : IRoastPlanningReadModel
+    public class FakeRoastPlanningReadModel : DbContext, IRoastPlanningReadModel
     {
-        private readonly DbSet<RoastScheduleViewModel> _roastSchedules;
-        public FakeRoastPlanningReadModel(FakeDbSet<RoastScheduleViewModel> roastSchedules)
+        private readonly FakeDbSet<RoastScheduleViewModel> _roastSchedules;
+
+        //public FakeRoastPlanningReadModel() : base("RoastScheduleDb")
+        //{
+        //    _roastSchedules = base.Set<RoastSchedules>();
+        //}
+
+        public FakeRoastPlanningReadModel(FakeDbSet<RoastScheduleViewModel> roastSchedules) 
         {
             _roastSchedules = roastSchedules;
         }

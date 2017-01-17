@@ -1,6 +1,5 @@
-using FirstPopCoffee.Common.Domain.Model;
+using WebUI.DependencyResolution;
 using WebUI.Infrastructure;
-using WebUI.ReadModel;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(WebUI.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(WebUI.App_Start.NinjectWebCommon), "Stop")]
@@ -65,7 +64,7 @@ namespace WebUI.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Load<NinjectBindings>();
+            kernel.Load<RoastPlanningNinjectModule>();
         }        
     }
 }

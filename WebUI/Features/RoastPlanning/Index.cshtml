@@ -9,10 +9,11 @@
 
 @if (@Model.Count > 0)
 {
-  foreach (var roastSchedule in @Model)
-  {
+    <h4>Your Roast Schedules:</h4>
+    foreach (var roastSchedule in @Model)
+    {
     <ul>
-        <li>string.Format("RoastSchedulId: {0}, RoastWeekStartsOn: {1}", @roastSchedule.RoastScheduleId, @roastSchedule.RoastWeekStartsOn)</li>
+        <li>@($"RoastScheduleId: {@roastSchedule.RoastScheduleId}, RoastWeekStartsOn: {@roastSchedule.RoastWeekStartsOn.ToShortDateString()}")</li>
     </ul>
   }
 }

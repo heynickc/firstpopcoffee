@@ -20,6 +20,7 @@ namespace WebUI.ReadModel
         {
             var newRoastSchedule = new RoastScheduleViewModel(message.RoastScheduleId, message.RoastWeekStartsOn);
             _roastPlanningContext.RoastSchedules.Add(newRoastSchedule);
+            _roastPlanningContext.SaveChanges();
         }
     }
 }

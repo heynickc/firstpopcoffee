@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 using FirstPopCoffee.Common.Events;
 
 namespace FirstPopCoffee.Common.Domain.Model {
-    public class FakeBus : ICommandSender, IEventPublisher {
+    public class FakeBus : IEventPublisher, ICommandSender
+    {
         private readonly Dictionary<Type, List<Action<Message>>> _routes = new Dictionary<Type, List<Action<Message>>>();
 
         public void RegisterHandler<T>(Action<T> handler) where T : Message {
@@ -40,5 +41,5 @@ namespace FirstPopCoffee.Common.Domain.Model {
                 Task.Run(() => handler(@event));
             }
         }
-    }
+    }    
 }

@@ -15,9 +15,9 @@ namespace WebUI.ReadModel
     {
         public DbSet<RoastScheduleViewModel> RoastSchedules { get; set; }
 
-        public RoastPlanningContext()
+        public RoastPlanningContext(FakeDbSet<RoastScheduleViewModel> roastSchedules)
         {
-            this.RoastSchedules = new FakeDbSet<RoastScheduleViewModel>();
+            this.RoastSchedules = roastSchedules;
         }
 
         public int SaveChangesCount { get; private set; }
